@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TextInputHighlightComponent } from 'angular-text-input-highlight/text-input-highlight.component';
 import { HighlightTag } from 'angular-text-input-highlight';
-// for order by
 
+import {NotificationService } from './shared/notification.service';
 
 @Component({
   moduleId: module.id,
   selector: 'ngx-filler-library',
   templateUrl: 'filler-library.component.html',
   styleUrls: ['./filler-library.component.scss'],
+  providers :[NotificationService]
 })
 
 export class FillerLibraryComponent implements OnInit {
@@ -16,94 +17,97 @@ export class FillerLibraryComponent implements OnInit {
   @ViewChild('highlight') highlight: TextInputHighlightComponent;
   @ViewChild('highlightTitle') highlightTitle: TextInputHighlightComponent;
 
-  items = [
-    {id:1,name:'Normacjk'},
-    {id:2,name:'Inspiring'},
-    {id:3,name:'Extraordinary'},
-    {id:4,name:'Successfully accomplished'},
-    {id:5,name:'Unsuccessfull'},
-    {id:6,name:'Trending'},
-    {id:7,name:'Over Anticipated'},
-    {id:8,name:'Normally Existed.'},
-    {id:9,name:'item1'},
-    {id:10,name:'item2'},
-    {id:11,name:'item3'},
-    {id:12,name:'item4'},
-    {id:13,name:'item5'},
-    {id:14,name:'item6'},
-    {id:15,name:'item7'},
-    {id:16,name:'item8'},
+  // items = [
+  //   {id:1,name:'Normacjk'},
+  //   {id:2,name:'Inspiring'},
+  //   {id:3,name:'Extraordinary'},
+  //   {id:4,name:'Successfully accomplished'},
+  //   {id:5,name:'Unsuccessfull'},
+  //   {id:6,name:'Trending'},
+  //   {id:7,name:'Over Anticipated'},
+  //   {id:8,name:'Normally Existed.'},
+  //   {id:9,name:'item1'},
+  //   {id:10,name:'item2'},
+  //   {id:11,name:'item3'},
+  //   {id:12,name:'item4'},
+  //   {id:13,name:'item5'},
+  //   {id:14,name:'item6'},
+  //   {id:15,name:'item7'},
+  //   {id:16,name:'item8'},
 
-  ];
+  // ];
 
-  orderId: string = 'id';
+  // orderId: string = 'id';
 
-  rightArray =[];
-  selectedDay : string = '';
-  getId :string ='';
-  selectChangeHandler(event){
+  // rightArray =[];
+  // selectedDay : string = '';
+  // getId :string ='';
+  // selectChangeHandler(event){
 
-    var i = 0;
+  //   var i = 0;
    
-    this.items.forEach(element => {
+  //   this.items.forEach(element => {
       
-      if(element.name == event){
-        this.rightArray.push({id: element.id,name: element.name});
-        this.items.splice(i, 1);
-        return;
-      }
-      i ++;
-    });
+  //     if(element.name == event){
+  //       this.rightArray.push({id: element.id,name: element.name});
+  //       this.items.splice(i, 1);
+  //       return;
+  //     }
+  //     i ++;
+  //   });
  
 
-  }
+  // }
 
-  buttonChangeHandler(index){
-    this.items.push(this.rightArray[index]);
-    this.rightArray.splice(index, 1);
-    this.sortLeft();
-  }
-  sortLeft(){
-    this.items.sort((a: any, b: any) => {
-      if (a.id < b.id) {
-        return -1;
-      } else if (a.id > b.id) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-  }
+  // buttonChangeHandler(index){
+  //   this.items.push(this.rightArray[index]);
+  //   this.rightArray.splice(index, 1);
+  //   this.sortLeft();
+  // }
+  // sortLeft(){
+  //   this.items.sort((a: any, b: any) => {
+  //     if (a.id < b.id) {
+  //       return -1;
+  //     } else if (a.id > b.id) {
+  //       return 1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
+  // }
 
 
-  tags = [
-    {
-      color: 'danger',
-      name: 'Category 1',
-    },
-    {
-      color: 'success',
-      name: 'Category 2',
-    },
-    {
-      color: 'primary',
-      name: 'Category 3',
-    },
-    {
-      color: 'info',
-      name: 'Category 4',
-    },
-    {
-      color: 'yellow',
-      name: 'Category 5',
-    },
-  ];
+  // tags = [
+  //   {
+  //     color: 'danger',
+  //     name: 'Category 1',
+  //   },
+  //   {
+  //     color: 'success',
+  //     name: 'Category 2',
+  //   },
+  //   {
+  //     color: 'primary',
+  //     name: 'Category 3',
+  //   },
+  //   {
+  //     color: 'info',
+  //     name: 'Category 4',
+  //   },
+  //   {
+  //     color: 'yellow',
+  //     name: 'Category 5',
+  //   },
+  // ];
   taggedWords = [];
   taggedTitleWords = [];
   text = '';
   field = '';
   start = 0;
   end = 0;
+
+  constructor(private notificationService : NotificationService) { }
+
 
   ngOnInit() {
   }

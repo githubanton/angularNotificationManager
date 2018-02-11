@@ -1,0 +1,107 @@
+<nb-card>
+    <nb-card-header>Filler Library</nb-card-header>
+    <nb-card-body>
+      <button *ngFor="let tag of tags"
+              (click)="tagSelection(tag)"
+             
+              class="btn btn-hero-{{ tag.color }} btn-tn btn-round">{{ tag.name }}
+      </button>
+    </nb-card-body>
+  </nb-card>
+  <nb-card>
+    <nb-card-header><span>Notification Manager</span><button style="    float: right;
+      background: #4aa3df;
+      border-radius: 0.4em;
+      padding: 6px;
+      text-transform: capitalize;" class="btn">Choose from templates</button></nb-card-header>
+    <nb-card-body>
+      <form  #notificationForm="ngForm" (ngSubmit)="onSubmit(notificationForm)">
+          <input type="hidden" name="noti_ID" #noti_ID="ngModel" [(ngModel)]="notificationService.selectedNotification.noti_ID">
+      <div class="row">
+        <div class="col-lg-12 input-group"
+             mwlTextInputHighlightContainer>
+          <textarea  name="title" #title="ngModel"  [(ngModel)]="notificationService.selectedNotification.title"
+                   (select)="selectText($event.target, 'title')"
+                    (resize)="refreshHighlights()"
+                    mwlTextInputElement
+                    placeholder="Title"
+                    rows="1"
+                    #title
+                    class="form-control title-input" required></textarea>
+          <!-- <mwl-text-input-highlight
+            #highlightTitle
+            [tags]="taggedTitleWords"
+            [textInputElement]="title">
+            
+          </mwl-text-input-highlight> -->
+        </div>
+      </div>
+      <div class="row">
+        <div mwlTextInputHighlightContainer
+             class="col-lg-12 input-group">
+          <textarea  name="body" #body="ngModel"  [(ngModel)]="notificationService.selectedNotification.body"
+            (select)="selectText($event.target, 'body')"
+            (resize)="refreshHighlights()"
+            mwlTextInputElement
+            placeholder="Body"
+            rows="2"
+            class="form-control"
+             required></textarea>
+          <!-- <mwl-text-input-highlight
+            #highlight
+            [tags]="taggedWords"
+            [tagCssClass]="'bg-blue'"
+            [textInputElement]="textarea">
+          </mwl-text-input-highlight> -->
+        </div>
+      </div>
+      <div class="row">
+        
+        <div class="col-lg-4">
+        <nb-card size="small">
+            <nb-card-header style="font-size: 1em; border: 2px solid #d5d8dc;">
+                TARGET CUSTOMER SEGMENTS
+            </nb-card-header>
+            <nb-card-body style="padding: 0;overflow: hidden;">
+                <select  multiple class="form-control" style="height:100%;" >
+                    <option *ngFor = "let item of items | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
+                </select>
+                 
+            </nb-card-body>
+          </nb-card>
+
+        </div>
+        <div class="col-lg-8">
+          <div>
+            <input style=" height: 8em;" type="text"
+                  placeholder="Deep Link (optional)"
+                  class="form-control"/>
+
+            <div style="height: 8em;padding: 1em;">
+
+                <button  style="margin: 5px;" *ngFor="let item of rightArray;let i = index"  (click)="buttonChangeHandler(i)" class="btn btn-hero-primary btn-tn btn-round" >{{item.name}}</button>
+             
+            </div>
+          </div>
+          <!-- <div style=" float: right;margin-right: 2em;margin-top: 3em;">
+            <img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt="">
+            <img style="padding-right: 1em;" src="../../../assets/images/cancel1.png" alt="">
+            <img style="padding-right: 1em;" src="../../../assets/images/reset1.png" alt="">
+            <img src="../../../assets/images/enter1.png" alt="">
+          </div> -->
+
+          <div  style=" float: right;  margin-right: 2em;">
+              <button class="btn btn-default" type="submit" [disabled]="!notificationForm.valid">
+                 submit
+              </button>
+              <button class="btn btn-default" type="button" (click)="resetForm(notificationForm)">
+                cancel
+              </button>
+            </div>
+
+
+        </div>
+      </div>
+    </form>
+    </nb-card-body>
+  </nb-card>

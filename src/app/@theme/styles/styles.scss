@@ -17,4 +17,15 @@
 
   // loading progress bar
   @include ngx-pace-theme();
+
+  input.ng-invalid.ng-dirty{
+    border: 1px solid red;
+  }
+
+  button:hover,a.btn:hover{
+    cursor: pointer;
+  }
+
+
+
 };
