@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TextInputHighlightComponent } from 'angular-text-input-highlight/text-input-highlight.component';
 import { HighlightTag } from 'angular-text-input-highlight';
+// for order by
+
 
 @Component({
   moduleId: module.id,
@@ -13,6 +15,21 @@ export class FillerLibraryComponent implements OnInit {
 
   @ViewChild('highlight') highlight: TextInputHighlightComponent;
   @ViewChild('highlightTitle') highlightTitle: TextInputHighlightComponent;
+
+  items = [
+    {id:'1',name:'item1'},
+    {id:'4',name:'item4'},
+    {id:'2',name:'item2'},
+    {id:'3',name:'item3'},
+
+  ];
+
+
+  selectedDay : string = '';
+  selectChangeHandler(event : any){
+    this.selectedDay = event.target.value;
+  }
+
 
   tags = [
     {
