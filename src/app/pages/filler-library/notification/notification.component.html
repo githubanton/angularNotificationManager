@@ -73,7 +73,7 @@
         </div>
         <div class="col-lg-8">
           <div>
-            <input style=" height: 8em;" type="text"
+            <input style=" height: 8em;" type="text"  name="deeplink" #deeplink="ngModel"  [(ngModel)]="notificationService.selectedNotification.deeplink"
                   placeholder="Deep Link (optional)"
                   class="form-control"/>
 

@@ -21,7 +21,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +38,6 @@ import { ToastrModule } from 'ngx-toastr';
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
 
-    ToastrModule.forRoot()
   ],
   bootstrap: [AppComponent],
   providers: [

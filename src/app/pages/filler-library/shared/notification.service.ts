@@ -18,13 +18,12 @@ export class NotificationService {
 
   insertNotification(notification : Notification)
   {
-
-    console.log(typeof(notification));
+    this.getData();
     this.notificationList.push({
       title: notification.title,
       body: notification.body,
       deeplink: notification.deeplink,
-      Customer_Segment_ID: notification.Customer_Segment_ID
+      // Customer_Segment_ID: notification.Customer_Segment_ID
     });
   }
 
@@ -34,7 +33,7 @@ export class NotificationService {
         title: notification.title,
         body: notification.body,
         deeplink: notification.deeplink,
-        Customer_Segment_ID: notification.Customer_Segment_ID
+        // Customer_Segment_ID: notification.Customer_Segment_ID
       });
   }
 
