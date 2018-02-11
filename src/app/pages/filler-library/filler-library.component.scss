@@ -70,6 +70,8 @@ $yellow-glow: btn-hero-glow($yellow-middle);
       background-color: $yellow-middle;
     }
 
+
+
     @include hover-focus-active() {
       & .text-input-highlight-container textarea.form-control, & .title-input {
         background-color: transparent;

@@ -1,20 +1,24 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-9">
     <nb-card>
       <nb-card-header>Filler Library</nb-card-header>
       <nb-card-body>
         <button *ngFor="let tag of tags"
                 (click)="tagSelection(tag)"
-                [disabled]="!end || !field"
+               
                 class="btn btn-hero-{{ tag.color }} btn-tn btn-round">{{ tag.name }}
         </button>
       </nb-card-body>
     </nb-card>
     <nb-card>
-      <nb-card-header>Notification Manager</nb-card-header>
+      <nb-card-header><span>Notification Manager</span><button style="    float: right;
+        background: #4aa3df;
+        border-radius: 0.4em;
+        padding: 6px;
+        text-transform: capitalize;" class="btn">Choose from templates</button></nb-card-header>
       <nb-card-body>
         <div class="row">
-          <div class="col-lg-6 input-group"
+          <div class="col-lg-12 input-group"
                mwlTextInputHighlightContainer>
             <textarea (select)="selectText($event.target, 'title')"
                       (resize)="refreshHighlights()"
@@ -38,7 +42,7 @@
               (resize)="refreshHighlights()"
               mwlTextInputElement
               placeholder="Body"
-              rows="6"
+              rows="2"
               class="form-control"
               [(ngModel)]="text"
               #textarea></textarea>
@@ -51,20 +55,145 @@
           </div>
         </div>
 
+        
+
         <div class="row">
-          <div class="col-lg-6 input-group">
-            <input type="text"
-                   placeholder="Image"
-                   class="form-control"/>
+          <!-- <div class="col-lg-4 ">
+              <div class="form-group">
+                <label for="select" >target customer segments</label>
+                  <select multiple class="form-control" style="height: 20em;">
+                    <option>Item 1</option>
+                    <option>Item 2</option>
+                    <option>Item 3</option>
+                    <option>Item 4</option>
+                    <option>Item 5</option>
+                    <option>Item 1</option>
+                    <option>Item 2</option>
+                    <option>Item 3</option>
+                    <option>Item 4</option>
+                    <option>Item 5</option>
+                    <option>Item 1</option>
+                    <option>Item 2</option>
+                    <option>Item 3</option>
+                    <option>Item 4</option>
+                    <option>Item 5</option>
+                    <option>Item 3</option>
+                    <option>Item 4</option>
+                    <option>Item 5</option>
+                    <option>Item 1</option>
+                    <option>Item 2</option>
+                    <option>Item 3</option>
+                    <option>Item 4</option>
+                    <option>Item 5</option>
+                  </select>
+                </div>
+          </div> -->
+          <div class="col-lg-4">
+          <nb-card size="small">
+              <nb-card-header style="font-size: 1em;">
+                  TARGET CUSTOMER SEGMENTS
+              </nb-card-header>
+              <nb-card-body style="padding: 0;overflow: hidden;">
+                  <select  multiple class="form-control" style="height: 20em;">
+                      <option>Item 1</option>
+                      <option>Item 2</option>
+                      <option>Item 3</option>
+                      <option>Item 4</option>
+                      <option>Item 5</option>
+                      <option>Item 1</option>
+                      <option>Item 2</option>
+                      <option>Item 3</option>
+                      <option>Item 4</option>
+                      <option>Item 5</option>
+                      <option>Item 1</option>
+                      <option>Item 2</option>
+                      <option>Item 3</option>
+                      <option>Item 4</option>
+                      <option>Item 5</option>
+                      <option>Item 3</option>
+                      <option>Item 4</option>
+                      <option>Item 5</option>
+                      <option>Item 1</option>
+                      <option>Item 2</option>
+                      <option>Item 3</option>
+                      <option>Item 4</option>
+                      <option>Item 5</option>
+                    </select>
+              </nb-card-body>
+            </nb-card>
+
           </div>
-          <div class="col-lg-6 input-group">
-            <input type="text"
-                   placeholder="Deep Link"
-                   class="form-control"/>
+          <div class="col-lg-8">
+            <div>
+              <input style=" height: 10em;" type="text"
+                    placeholder="Deep Link (optional)"
+                    class="form-control"/>
+              <div style="height: 8em;padding: 1em;">
+                <button class="btn btn-hero-primary btn-tn btn-round">aaa</button>
+                <button class="btn btn-hero-primary btn-tn btn-round">aaa</button>
+                <button class="btn btn-hero-primary btn-tn btn-round">aaa</button>
+              </div>
+            </div>
+            <div style=" float: right;  margin-right: 2em;">
+              <img style="padding-right: 1em;" src="../../assets/images/save1.png" alt="">
+              <img style="padding-right: 1em;" src="../../assets/images/cancel1.png" alt="">
+              <img style="padding-right: 1em;" src="../../assets/images/reset1.png" alt="">
+              <img src="../../assets/images/enter1.png" alt="">
+            </div>
           </div>
         </div>
       </nb-card-body>
     </nb-card>
+    <!-- <nb-card size="small">
+        
+        
+      </nb-card> -->
 
+  </div>
+  <div class="col-3">
+    
+    <nb-card size="small" style="margin-bottom: 0;text-align: center;">
+        <nb-card-header style="color: white;background: #4aa3df;"> NOTIFICATION PREVIEW       
+        </nb-card-header>     
+        <nb-card-body style="overflow: hidden;">
+          <div>
+            <img src="../../assets/images/phone.png" alt=""> 
+          </div>     
+        </nb-card-body>
+    </nb-card>
+    
+    <nb-card size="medium" class="headings-card">
+        <nb-card-header>
+            NOTIFICATIONS LIST        
+        </nb-card-header>
+        <nb-card-body>
+          <div class="header">
+            <div style="    border: 2px solid #dadfe6;
+            padding: 1em;   border-radius: 0.375rem;
+            margin-bottom: 1em;">
+              <h5 style="font-size:1.2em;">Title</h5>
+              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+            </div>
+          </div>
+          <div class="header">
+              <div style="  border: 2px solid #dadfe6;
+              padding: 1em;    border-radius: 0.375rem;
+              margin-bottom: 1em; ">
+                <h5 style="font-size:1.2em;">Title</h5>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+              </div>
+            </div>
+            <div class="header">
+                <div style="    border: 2px solid #dadfe6;
+                padding: 1em;   border-radius: 0.375rem;
+                margin-bottom: 1em;">
+                  <h5 style="font-size:1.2em;">Title</h5>
+                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+                </div>
+              </div>
+          
+          
+        </nb-card-body>
+      </nb-card>
   </div>
 </div>
