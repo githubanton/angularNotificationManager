@@ -61,10 +61,6 @@ export class NotificationComponent implements OnInit {
     {id:11,name:'item3'},
     {id:12,name:'item4'},
     {id:13,name:'item5'},
-    // {id:14,name:'item6'},
-    // {id:15,name:'item7'},
-    // {id:16,name:'item8'},
-
   ];
 
   orderId: string = 'id';
@@ -123,12 +119,28 @@ export class NotificationComponent implements OnInit {
   resetForm(notificationForm?: NgForm) {
     if (notificationForm != null)
       notificationForm.reset();
+      this.rightArray=[];
+      this.items = [
+        {id:1,name:'Normacjk'},
+        {id:2,name:'Inspiring'},
+        {id:3,name:'Extraordinary'},
+        {id:4,name:'Successfully accomplished'},
+        {id:5,name:'Unsuccessfull'},
+        {id:6,name:'Trending'},
+        {id:7,name:'Over Anticipated'},
+        {id:8,name:'Normally Existed.'},
+        {id:9,name:'item1'},
+        {id:10,name:'item2'},
+        {id:11,name:'item3'},
+        {id:12,name:'item4'},
+        {id:13,name:'item5'},
+      ];
     this.notificationService.selectedNotification = {
       noti_ID: null,
       title: '',
       body: '',
       deeplink: '',
-      Customer_Segment_ID: 0,
+      Customer_Segment_ID: '',
     }
   }
 

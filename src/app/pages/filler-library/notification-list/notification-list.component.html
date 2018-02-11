@@ -12,31 +12,11 @@
         NOTIFICATIONS LIST        
   </nb-card-header>
   <nb-card-body>
-      <div class="header">
-        <div style="    border: 2px solid #dadfe6;
-        padding: 1em;   border-radius: 0.375rem;
-        margin-bottom: 1em;">
-          <h5 style="font-size:1.2em;">Title</h5>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
+      <div class="header" *ngFor="let noti of noti_List">
+        <div  class="noti_list_title">
+          <h5 style="font-size:1.2em;">{{noti.title}}</h5>
+          <span>{{noti.body}}</span>
         </div>
       </div>
-      <div class="header">
-          <div style="  border: 2px solid #dadfe6;
-          padding: 1em;    border-radius: 0.375rem;
-          margin-bottom: 1em; ">
-            <h5 style="font-size:1.2em;">Title</h5>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-          </div>
-        </div>
-        <div class="header">
-            <div style="    border: 2px solid #dadfe6;
-            padding: 1em;   border-radius: 0.375rem;
-            margin-bottom: 1em;">
-              <h5 style="font-size:1.2em;">Title</h5>
-              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-            </div>
-          </div>
-      
-      
   </nb-card-body>
 </nb-card>
