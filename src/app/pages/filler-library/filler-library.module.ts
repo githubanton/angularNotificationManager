@@ -4,6 +4,8 @@ import { ThemeModule } from '../../@theme/theme.module';
 
 import { FillerLibraryComponent } from './filler-library.component';
 import { TextInputHighlightModule } from 'angular-text-input-highlight';
+ 
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 
@@ -17,6 +19,7 @@ import { TextInputHighlightModule } from 'angular-text-input-highlight';
     ]),
     ThemeModule,
     TextInputHighlightModule,
+    Ng2OrderModule
   ],
   exports: [],
   declarations: [FillerLibraryComponent],

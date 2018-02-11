@@ -17,17 +17,54 @@ export class FillerLibraryComponent implements OnInit {
   @ViewChild('highlightTitle') highlightTitle: TextInputHighlightComponent;
 
   items = [
-    {id:'1',name:'item1'},
-    {id:'4',name:'item4'},
-    {id:'2',name:'item2'},
-    {id:'3',name:'item3'},
+    {id:'1',name:'Normacjk'},
+    {id:'2',name:'Inspiring'},
+    {id:'3',name:'Extraordinary'},
+    {id:'4',name:'Successfully accomplished'},
+    {id:'5',name:'Unsuccessfull'},
+    {id:'6',name:'Trending'},
+    {id:'7',name:'Over Anticipated'},
+    {id:'8',name:'Normally Existed.'},
 
   ];
 
+  orderId: string = 'id';
 
+  rightArray =[];
   selectedDay : string = '';
-  selectChangeHandler(event : any){
-    this.selectedDay = event.target.value;
+  getId :string ='';
+  selectChangeHandler(event){
+
+    var i = 0;
+   
+    this.items.forEach(element => {
+      
+      if(element.name == event){
+        this.rightArray.push({id: element.id,name: element.name});
+        this.items.splice(i, 1);
+        return;
+      }
+      i ++;
+    });
+ 
+
+  }
+
+  buttonChangeHandler(index){
+    this.items.push(this.rightArray[index]);
+    this.rightArray.splice(index, 1);
+    this.sortLeft();
+  }
+  sortLeft(){
+    this.items.sort((a: any, b: any) => {
+      if (a.id < b.id) {
+        return -1;
+      } else if (a.id > b.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 
 

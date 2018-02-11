@@ -94,31 +94,9 @@
                   TARGET CUSTOMER SEGMENTS
               </nb-card-header>
               <nb-card-body style="padding: 0;overflow: hidden;">
-                  <select  multiple class="form-control" style="height: 20em;" (change)="selectChangeHandler($event)">
-                      <option *ngFor = "let item of items" >{{item.name}}</option>
-                      <!-- <option value="item2">ITEM 2</option>
-                      <option value="item3">ITEM 3</option>
-                      <option value="item4">ITEM 4</option>
-                      <option value="item5">ITEM 5</option>
-                      <option value="item">ITEM 6</option>
-                      <option value="item">ITEM 7</option>
-                      <option value="item">ITEM 8</option>
-                      <option value="item">ITEM 9</option>
-                      <option value="item">ITEM 10</option>
-                      <option value="item">ITEM 11</option>
-                      <option value="item">ITEM 12</option>
-                      <option value="item">ITEM 13</option>
-                      <option value="item">ITEM 14</option>
-                      <option value="item">ITEM 15</option>
-                      <option value="item">ITEM 16</option>
-                      <option value="item">ITEM 17</option>
-                      <option value="item">ITEM 18</option>
-                      <option value="item">ITEM 19</option>
-                      <option value="item">ITEM 20</option>
-                      <option value="item">ITEM 21</option>
-                      <option value="item">ITEM 22</option>
-                      <option value="item">ITEM 23</option> -->
-                    </select>
+                  <select  multiple class="form-control" style="height: 20em;" >
+                      <option *ngFor = "let item of items | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
+                  </select>
                    
               </nb-card-body>
             </nb-card>
@@ -134,7 +112,11 @@
               <div style="height: 8em;padding: 1em;">
 
                   <!-- <p><span>u selected:</span>{{selectedDay}}</p> -->
-                <button class="btn btn-hero-primary btn-tn btn-round">{{selectedDay}}</button>
+
+
+                  <button  style="margin: 5px;" *ngFor="let item of rightArray;let i = index"  (click)="buttonChangeHandler(i)" class="btn btn-hero-primary btn-tn btn-round" >{{item.name}}</button>
+
+                
                
               </div>
             </div>
