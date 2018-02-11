@@ -16,24 +16,24 @@ export class NotificationService {
     return this.notificationList;
   }
 
-  insertNotification(notification : Notification)
+  insertNotification(notification : Notification,arr)
   {
     this.getData();
     this.notificationList.push({
       title: notification.title,
       body: notification.body,
       deeplink: notification.deeplink,
-      // Customer_Segment_ID: notification.Customer_Segment_ID
+      Customer_Segment_ID: arr
     });
   }
 
-  updateNotification(notification : Notification){
+  updateNotification(notification : Notification,arr){
     this.notificationList.update(notification.noti_ID,
       {
         title: notification.title,
         body: notification.body,
         deeplink: notification.deeplink,
-        // Customer_Segment_ID: notification.Customer_Segment_ID
+        Customer_Segment_ID: arr
       });
   }
 

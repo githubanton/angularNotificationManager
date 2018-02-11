@@ -21,8 +21,7 @@
         <div class="col-lg-12 input-group"
              mwlTextInputHighlightContainer>
           <textarea  name="title" #title="ngModel"  [(ngModel)]="notificationService.selectedNotification.title"
-                   (select)="selectText($event.target, 'title')"
-                    (resize)="refreshHighlights()"
+                 
                     mwlTextInputElement
                     placeholder="Title"
                     rows="1"
@@ -40,8 +39,7 @@
         <div mwlTextInputHighlightContainer
              class="col-lg-12 input-group">
           <textarea  name="body" #body="ngModel"  [(ngModel)]="notificationService.selectedNotification.body"
-            (select)="selectText($event.target, 'body')"
-            (resize)="refreshHighlights()"
+           
             mwlTextInputElement
             placeholder="Body"
             rows="2"

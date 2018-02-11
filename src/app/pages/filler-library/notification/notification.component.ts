@@ -113,9 +113,9 @@ export class NotificationComponent implements OnInit {
 
   onSubmit(notificationForm: NgForm) {
     if (notificationForm.value.noti_ID == null)
-      this.notificationService.insertNotification(notificationForm.value);
+      this.notificationService.insertNotification(notificationForm.value,this.rightArray);
     else
-      this.notificationService.insertNotification(notificationForm.value);
+      this.notificationService.updateNotification(notificationForm.value,this.rightArray);
     this.resetForm(notificationForm);
     this.tostr.success('Succcess');
   }

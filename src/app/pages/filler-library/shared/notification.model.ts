@@ -3,5 +3,5 @@ export class Notification {
     title : string;
     body : string;
     deeplink : string;
-    Customer_Segment_ID   : number;
+    Customer_Segment_ID  : any=[];
 }
