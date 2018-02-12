@@ -43,30 +43,35 @@ export class NotificationListComponent implements OnInit {
         for(let i=0;;i++)
         {
           if(this.notificationService.selectedNotification.Customer_Segment_ID[i] != undefined)
-          tempCustomerId.push(this.notificationService.selectedNotification.Customer_Segment_ID[i]);
+            tempCustomerId.push(this.notificationService.selectedNotification.Customer_Segment_ID[i]);
           else
             break;
         }
 
         this.notificationService.selectedNotification.Customer_Segment_ID = tempCustomerId;
-        // this.notificationService.itemArray = [];
-        // for(let i=0;tempCustomerId.length;i++){
-        //   for(let j=0;this.notificationService.itemsInit.length;j++){
-        //     if(this.notificationService.itemsInit[j]!=tempCustomerId[i])
-        //       this.notificationService.itemArray.push(this.notificationService.itemsInit[j]);
-        //   }
-        // }
-
+        this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
+        let tempItemArray = [];
+        for(let i=0;i<this.notificationService.itemArray.length;i++)
+        {
+          for(let j=0;j<tempCustomerId.length;j++)
+          {
+            if(this.notificationService.itemArray[i].name != tempCustomerId[j].name&&j==tempCustomerId.length-1)
+              tempItemArray.push(this.notificationService.itemArray[i]);
+            if(this.notificationService.itemArray[i].name == tempCustomerId[j].name)
+              break;
+          }
+        }
+        this.notificationService.itemArray = tempItemArray;
     }
     else{
         this.notificationService.selectedNotification.Customer_Segment_ID = [];
-        this.notificationService.itemArray = this.notificationService.itemsInit;
+        this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
     }
     
-    this.notificationService.temp = this.notificationService.selectedNotification;
+    this.notificationService.temp  = Object.assign({}, this.notificationService.selectedNotification);
     this.notificationService.rightArray = this.notificationService.selectedNotification.Customer_Segment_ID;
-
-
+    this.notificationService.tempItemArray = this.notificationService.itemArray.slice(0);
+    this.notificationService.tempRightArray = this.notificationService.rightArray.slice(0);
 
   }
 

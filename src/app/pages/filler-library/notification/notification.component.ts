@@ -18,7 +18,7 @@ export class NotificationComponent implements OnInit {
   ngOnInit() {
 
     this.resetForm();
-    this.notificationService.itemArray = this.notificationService.itemsInit;
+    this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
   }
 
   // noti_EditList: Notification[];
@@ -119,21 +119,7 @@ export class NotificationComponent implements OnInit {
     if (notificationForm != null)
       notificationForm.reset();
       this.notificationService.rightArray=[];
-      this.notificationService.itemArray = [
-        {id:1,name:'Normacjk'},
-        {id:2,name:'Inspiring'},
-        {id:3,name:'Extraordinary'},
-        {id:4,name:'Successfully accomplished'},
-        {id:5,name:'Unsuccessfull'},
-        {id:6,name:'Trending'},
-        {id:7,name:'Over Anticipated'},
-        {id:8,name:'Normally Existed.'},
-        {id:9,name:'item1'},
-        {id:10,name:'item2'},
-        {id:11,name:'item3'},
-        {id:12,name:'item4'},
-        {id:13,name:'item5'},
-      ];
+      this.notificationService.itemArray = this.notificationService.itemsInit.slice(0);
     this.notificationService.selectedNotification = {
       noti_ID: null,
       title: '',
@@ -152,14 +138,9 @@ export class NotificationComponent implements OnInit {
 
 
   resetEditForm() {
-    console.log('reset');
-    this.notificationService.selectedNotification = {
-      noti_ID: this.notificationService.temp.noti_ID,
-      title: this.notificationService.temp.title,
-      body: this.notificationService.temp.body,
-      deeplink:this.notificationService.temp.deeplink,
-      Customer_Segment_ID: this.notificationService.temp.Customer_Segment_ID,
-    }
+    this.notificationService.selectedNotification  = Object.assign({}, this.notificationService.temp);
+    this.notificationService.itemArray = this.notificationService.tempItemArray.slice(0);
+    this.notificationService.rightArray =this.notificationService.tempRightArray.slice(0);
   }
 
 

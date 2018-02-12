@@ -11,6 +11,8 @@ export class NotificationService {
   temp: Notification = new Notification();
   rightArray: any = [];
   itemArray : any =[];
+  tempItemArray : any =[];
+  tempRightArray : any =[];
   itemsInit = [
     {id:1,name:'Normacjk'},
     {id:2,name:'Inspiring'},
