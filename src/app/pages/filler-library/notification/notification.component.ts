@@ -13,9 +13,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
+ 
+
+  ngOnInit() {
+
+    this.resetForm();
+    this.notificationService.itemArray = this.notificationService.itemsInit;
+  }
 
   // noti_EditList: Notification[];
   constructor(private notificationService: NotificationService, private tostr: ToastrService) { }
+
+
 
   tags = [
     {
@@ -47,24 +56,8 @@ export class NotificationComponent implements OnInit {
   end = 0;
 
 
-  
-  items = [
-    {id:1,name:'Normacjk'},
-    {id:2,name:'Inspiring'},
-    {id:3,name:'Extraordinary'},
-    {id:4,name:'Successfully accomplished'},
-    {id:5,name:'Unsuccessfull'},
-    {id:6,name:'Trending'},
-    {id:7,name:'Over Anticipated'},
-    {id:8,name:'Normally Existed.'},
-    {id:9,name:'item1'},
-    {id:10,name:'item2'},
-    {id:11,name:'item3'},
-    {id:12,name:'item4'},
-    {id:13,name:'item5'},
-  ];
-  
 
+// for order
   orderId: string = 'id';
 
 
@@ -74,11 +67,11 @@ export class NotificationComponent implements OnInit {
 
     var i = 0;
    
-    this.items.forEach(element => {
+    this.notificationService.itemArray.forEach(element => {
       
       if(element.name == event){
         this.notificationService.rightArray.push({id: element.id,name: element.name});
-        this.items.splice(i, 1);
+        this.notificationService.itemArray.splice(i, 1);
         return;
       }
       i ++;
@@ -88,12 +81,12 @@ export class NotificationComponent implements OnInit {
   }
 
   buttonChangeHandler(index){
-    this.items.push(this.notificationService.rightArray[index]);
+    this.notificationService.itemArray.push(this.notificationService.rightArray[index]);
     this.notificationService.rightArray.splice(index, 1);
     this.sortLeft();
   }
   sortLeft(){
-    this.items.sort((a: any, b: any) => {
+    this.notificationService.itemArray.sort((a: any, b: any) => {
       if (a.id < b.id) {
         return -1;
       } else if (a.id > b.id) {
@@ -104,11 +97,7 @@ export class NotificationComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-    this.resetForm();
-  }
-
+  
   onSubmit(notificationForm: NgForm) {
     if (notificationForm.value.noti_ID == null){
       console.log('not null');
@@ -130,7 +119,7 @@ export class NotificationComponent implements OnInit {
     if (notificationForm != null)
       notificationForm.reset();
       this.notificationService.rightArray=[];
-      this.items = [
+      this.notificationService.itemArray = [
         {id:1,name:'Normacjk'},
         {id:2,name:'Inspiring'},
         {id:3,name:'Extraordinary'},
@@ -163,6 +152,7 @@ export class NotificationComponent implements OnInit {
 
 
   resetEditForm() {
+    console.log('reset');
     this.notificationService.selectedNotification = {
       noti_ID: this.notificationService.temp.noti_ID,
       title: this.notificationService.temp.title,

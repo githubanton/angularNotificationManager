@@ -49,13 +49,25 @@ export class NotificationListComponent implements OnInit {
         }
 
         this.notificationService.selectedNotification.Customer_Segment_ID = tempCustomerId;
+        // this.notificationService.itemArray = [];
+        // for(let i=0;tempCustomerId.length;i++){
+        //   for(let j=0;this.notificationService.itemsInit.length;j++){
+        //     if(this.notificationService.itemsInit[j]!=tempCustomerId[i])
+        //       this.notificationService.itemArray.push(this.notificationService.itemsInit[j]);
+        //   }
+        // }
+
     }
     else{
         this.notificationService.selectedNotification.Customer_Segment_ID = [];
+        this.notificationService.itemArray = this.notificationService.itemsInit;
     }
     
     this.notificationService.temp = this.notificationService.selectedNotification;
     this.notificationService.rightArray = this.notificationService.selectedNotification.Customer_Segment_ID;
+
+
+
   }
 
   onDelete(key: string) {
@@ -75,6 +87,7 @@ export class NotificationListComponent implements OnInit {
         deeplink: '',
         Customer_Segment_ID: '',
       }
+      this.notificationService.rightArray = [];
       this.tostr.warning("Deleted Successfully", "Success");
     }
   }

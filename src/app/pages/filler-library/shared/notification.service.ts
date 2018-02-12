@@ -10,7 +10,22 @@ export class NotificationService {
   selectedNotification: Notification = new Notification();
   temp: Notification = new Notification();
   rightArray: any = [];
-  itemsArray:any = [];
+  itemArray : any =[];
+  itemsInit = [
+    {id:1,name:'Normacjk'},
+    {id:2,name:'Inspiring'},
+    {id:3,name:'Extraordinary'},
+    {id:4,name:'Successfully accomplished'},
+    {id:5,name:'Unsuccessfull'},
+    {id:6,name:'Trending'},
+    {id:7,name:'Over Anticipated'},
+    {id:8,name:'Normally Existed.'},
+    {id:9,name:'item1'},
+    {id:10,name:'item2'},
+    {id:11,name:'item3'},
+    {id:12,name:'item4'},
+    {id:13,name:'item5'},
+  ];
   constructor(private firebase :AngularFireDatabase) { }
   
   getData(){
@@ -52,7 +67,7 @@ export class NotificationService {
           Customer_Segment_ID: arr
         });
     }
-    else{
+    else{ 
       this.notificationList.update(notification.noti_ID,
         {
           title: notification.title,

@@ -15,13 +15,21 @@
           <div  *ngFor="let noti of noti_List" >
             <a class="btn" (click)="onEdit(noti)" style="width: 100%;padding: 0;">
                 <div  class="noti_list_title">
-                    <p style="font-size:1.2em;">{{noti.title}}</p>
-                    <span>{{noti.body}}</span>
+                    <p style="    margin-bottom: 5px;">{{noti.title}}</p>
+                    <span style="font-size: 11px;">{{noti.body}}</span>
                 </div>
             </a>
             <a class="btn" (click)="onDelete(noti.noti_ID)">
                 <i class="fa fa-trash-o"></i>
             </a>
           </div> 
+
+          <!-- <div   *ngFor="let noti of noti_List">
+            <div  (click)="onEdit(noti)" style="width:100%;border:1px solid blue;    padding: 1em;">
+                <p style="margin-bottom: 5px;">{{noti.title}}</p>
+                <span style="font-size: 11px;">{{noti.body}}</span>
+              <i class="fa fa-trash-o" (click)="onDelete(noti.noti_ID)" ></i>
+            </div>
+        </div> -->
   </nb-card-body>
 </nb-card>

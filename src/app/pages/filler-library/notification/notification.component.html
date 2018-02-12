@@ -62,7 +62,7 @@
             </nb-card-header>
             <nb-card-body style="padding: 0;overflow: hidden;">
                 <select  multiple class="form-control" style="height:100%;" >
-                    <option *ngFor = "let item of items | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
+                    <option *ngFor = "let item of notificationService.itemArray | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
                 </select>
                  
             </nb-card-body>
