@@ -38,7 +38,7 @@ export class NotificationService {
   insertNotification(notification : Notification,arr)
   {
     this.getData();
-    if(notification.deeplink){
+    if(!notification.deeplink){
       this.notificationList.push({
         title: notification.title,
         body: notification.body,
@@ -59,8 +59,8 @@ export class NotificationService {
   }
 
   updateNotification(notification : Notification,arr){
-
-    if(notification.deeplink){
+   
+    if(!notification.deeplink){
       this.notificationList.update(notification.noti_ID,
         {
           title: notification.title,

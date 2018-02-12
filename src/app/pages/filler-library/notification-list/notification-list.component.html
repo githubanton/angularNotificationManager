@@ -7,19 +7,21 @@
       </div>     
     </nb-card-body>
 </nb-card>
-<nb-card size="medium" class="headings-card">
+<nb-card size="medium" class="headings-card" style="height: 31.5em;">
   <nb-card-header>
         NOTIFICATIONS LIST        
   </nb-card-header>
   <nb-card-body>
-          <div  *ngFor="let noti of noti_List" >
-            <a class="btn" (click)="onEdit(noti)" style="width: 100%;padding: 0;">
-                <div  class="noti_list_title">
-                    <p style="    margin-bottom: 5px;">{{noti.title}}</p>
-                    <span style="font-size: 11px;">{{noti.body}}</span>
+          <div  *ngFor="let noti of noti_List"  style="    border: solid 2px #dadfe6;
+          border-radius: 10px;margin-bottom:1em;">
+            <a  (click)="onEdit(noti)" style="width: 100%;padding: 0;cursor:pointer;">
+                <div  class="noti_list_title" style="border:0px;    padding-bottom: 0;">
+                    <p style="    margin-bottom: 5px;word-wrap: break-word;">{{noti.title}}</p>
+                    <span style="font-size: 11px;word-wrap: break-word;">{{noti.body}}</span>
                 </div>
             </a>
-            <a class="btn" (click)="onDelete(noti.noti_ID)">
+            <a class="btn" (click)="onDelete(noti.noti_ID)" style="padding-top: 0;
+            margin-left: 12em;">
                 <i class="fa fa-trash-o"></i>
             </a>
           </div> 
