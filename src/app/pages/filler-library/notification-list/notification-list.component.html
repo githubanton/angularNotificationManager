@@ -12,11 +12,16 @@
         NOTIFICATIONS LIST        
   </nb-card-header>
   <nb-card-body>
-      <div class="header" *ngFor="let noti of noti_List">
-        <div  class="noti_list_title">
-          <h5 style="font-size:1.2em;">{{noti.title}}</h5>
-          <span>{{noti.body}}</span>
-        </div>
-      </div>
+          <div  *ngFor="let noti of noti_List" >
+            <a class="btn" (click)="onEdit(noti)" style="width: 100%;padding: 0;">
+                <div  class="noti_list_title">
+                    <p style="font-size:1.2em;">{{noti.title}}</p>
+                    <span>{{noti.body}}</span>
+                </div>
+            </a>
+            <a class="btn" (click)="onDelete(noti.noti_ID)">
+                <i class="fa fa-trash-o"></i>
+            </a>
+          </div> 
   </nb-card-body>
 </nb-card>

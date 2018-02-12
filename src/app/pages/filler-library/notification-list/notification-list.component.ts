@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
-import {NotificationService } from '../shared/notification.service';
+import { NotificationService } from '../shared/notification.service';
 
 import { Notification } from '../shared/notification.model';
 
@@ -32,6 +32,51 @@ export class NotificationListComponent implements OnInit {
         this.noti_List.push(y as Notification);
       });
     });
+  }
+
+  onEdit(noti: Notification) {
+    this.notificationService.selectedNotification = Object.assign({}, noti);
+    let tempCustomerId = [];
+
+    if(this.notificationService.selectedNotification.Customer_Segment_ID){
+
+        for(let i=0;;i++)
+        {
+          if(this.notificationService.selectedNotification.Customer_Segment_ID[i] != undefined)
+          tempCustomerId.push(this.notificationService.selectedNotification.Customer_Segment_ID[i]);
+          else
+            break;
+        }
+
+        this.notificationService.selectedNotification.Customer_Segment_ID = tempCustomerId;
+    }
+    else{
+        this.notificationService.selectedNotification.Customer_Segment_ID = [];
+    }
+    
+    this.notificationService.temp = this.notificationService.selectedNotification;
+    this.notificationService.rightArray = this.notificationService.selectedNotification.Customer_Segment_ID;
+  }
+
+  onDelete(key: string) {
+    if (confirm('Are you sure to delete this notification ?') == true) {
+      this.notificationService.deleteNotification(key);
+      this.notificationService.selectedNotification = {
+        noti_ID: null,
+        title: '',
+        body: '',
+        deeplink: '',
+        Customer_Segment_ID: '',
+      }
+      this.notificationService.temp = {
+        noti_ID: null,
+        title: '',
+        body: '',
+        deeplink: '',
+        Customer_Segment_ID: '',
+      }
+      this.tostr.warning("Deleted Successfully", "Success");
+    }
   }
 
 }
