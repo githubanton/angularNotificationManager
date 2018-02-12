@@ -17,7 +17,7 @@
           border-radius: 10px;margin-bottom:1em;">
             <a  (click)="onEdit(noti)" style="width: 100%;padding: 0;cursor:pointer;">
                 <div  class="noti_list_title" style="border:0px;    padding-bottom: 0;">
-                    <p style="    margin-bottom: 5px;word-wrap: break-word;">{{noti.title}}</p>
+                    <p style="      font-weight: bold;  margin-bottom: 5px;word-wrap: break-word;">{{noti.title}}</p>
                     <span style="font-size: 11px;word-wrap: break-word;">{{noti.body}}</span>
                 </div>
             </a>
@@ -27,12 +27,5 @@
             </a>
           </div> 
 
-          <!-- <div   *ngFor="let noti of noti_List">
-            <div  (click)="onEdit(noti)" style="width:100%;border:1px solid blue;    padding: 1em;">
-                <p style="margin-bottom: 5px;">{{noti.title}}</p>
-                <span style="font-size: 11px;">{{noti.body}}</span>
-              <i class="fa fa-trash-o" (click)="onDelete(noti.noti_ID)" ></i>
-            </div>
-        </div> -->
   </nb-card-body>
 </nb-card>

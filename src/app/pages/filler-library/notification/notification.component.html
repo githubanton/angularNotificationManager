@@ -1,11 +1,7 @@
 <nb-card style="margin-bottom: 0.8em;">
     <nb-card-header style="padding-top: 0.7em;padding-bottom: 0.7em;">Filler Library</nb-card-header>
     <nb-card-body style="padding-top: 0.7em;padding-bottom: 0.7em;">
-      <!-- <button *ngFor="let tag of tags"
-              (click)="tagSelection(tag)"
-             
-              class="btn btn-hero-{{ tag.color }} btn-tn btn-round">{{ tag.name }}
-      </button> -->
+      
       <div style="text-align: center;">
         <img src="../../../assets/images/mybtn.png" alt="" style="width:96%;">
       </div>
@@ -26,22 +22,7 @@
               <input _ngcontent-c45="" class="form-control" placeholder="Title" type="text"
               name="title" #title="ngModel"  [(ngModel)]="notificationService.selectedNotification.title">
             </div>
-        <!-- <div class="col-lg-12 input-group"
-             mwlTextInputHighlightContainer>
-          <textarea  name="title" #title="ngModel"  [(ngModel)]="notificationService.selectedNotification.title"
-                 
-                    mwlTextInputElement
-                    placeholder="Title"
-                    rows="1"
-                    #title
-                    class="form-control title-input" required></textarea> -->
-          <!-- <mwl-text-input-highlight
-            #highlightTitle
-            [tags]="taggedTitleWords"
-            [textInputElement]="title">
-            
-          </mwl-text-input-highlight> -->
-        <!-- </div> -->
+       
       </div>
       <div class="row">
         <div mwlTextInputHighlightContainer
@@ -53,12 +34,7 @@
             rows="1"
             class="form-control"
              required></textarea>
-          <!-- <mwl-text-input-highlight
-            #highlight
-            [tags]="taggedWords"
-            [tagCssClass]="'bg-blue'"
-            [textInputElement]="textarea">
-          </mwl-text-input-highlight> -->
+        
         </div>
       </div>
       <div class="row">
@@ -98,18 +74,8 @@
                 <input _ngcontent-c45="" class="form-control" placeholder="Deep Link (optional)" type="text"
                 name="deeplink" #deeplink="ngModel"  [(ngModel)]="notificationService.selectedNotification.deeplink">
               </div>
-            <!-- <input style=" height: 8em;" type="text"  name="deeplink" #deeplink="ngModel"  [(ngModel)]="notificationService.selectedNotification.deeplink"
-                  placeholder="Deep Link (optional)"
-                  class="form-control"/> -->
-
-            
           </div>
-          <!-- <div style=" float: right;margin-right: 2em;margin-top: 3em;">
-            <img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt="">
-            <img style="padding-right: 1em;" src="../../../assets/images/cancel1.png" alt="">
-            <img style="padding-right: 1em;" src="../../../assets/images/reset1.png" alt="">
-            <img src="../../../assets/images/enter1.png" alt="">
-          </div> -->
+        
 
           <div  style=" float: right;  margin-right: 2em;margin-top: 3em;">
               <button class="btn btn-default" style="     margin-right: 18px;   background: none; width: 40px;height: 40px; padding: 0;
@@ -120,11 +86,6 @@
               <img style="padding-right: 1em;" src="../../../assets/images/cancel1.png" alt=""  (click)="resetForm(notificationForm)">
               <img style="padding-right: 1em;" src="../../../assets/images/reset1.png" alt="" (click)="resetEditForm()">
               <img src="../../../assets/images/enter1.png" alt="" >
-
-
-     
-
-
 
             </div>
 
