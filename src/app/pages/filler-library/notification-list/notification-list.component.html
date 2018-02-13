@@ -1,6 +1,6 @@
-<nb-card size="small" class="ti_list_header">
-    <nb-card-header class="noti_list_nb_card_header1"> 
-      <p class="noti_list_p1">NOTIFICATION PREVIEW</p>      
+<nb-card size="small" class="noti_list_header10">
+    <nb-card-header class="noti_list_nb_card_header10"> 
+      <p class="noti_list_p01">NOTIFICATION PREVIEW</p>      
     </nb-card-header>     
     <nb-card-body style="overflow: hidden;">
       <div>
@@ -8,19 +8,19 @@
       </div>     
     </nb-card-body>
 </nb-card>
-<nb-card size="medium" class="headings-card noti_list_height1">
-  <nb-card-header class="noti_list_nb_card_header2">
-    <p class="noti_list_p2">NOTIFICATIONS LIST</p>    
+<nb-card size="medium" class="headings-card noti_list_height10">
+  <nb-card-header class="noti_list_nb_card_header20">
+    <p class="noti_list_p20">NOTIFICATIONS LIST</p>    
   </nb-card-header>
   <nb-card-body>
-          <div  *ngFor="let noti of noti_List"  class="noti_list_nb_body1">
-            <a  (click)="onEdit(noti)" class="noti_list_nb_bod_a1">
-                <div  class="noti_list_title noti_list_nb_bod_div1">
-                    <p class="noti_list_nb_bod_p1">{{noti.title}}</p>
+          <div  *ngFor="let noti of noti_List"  class="noti_list_nb_body10">
+            <a  (click)="onEdit(noti)" class="noti_list_nb_bod_a10">
+                <div  class="noti_list_title noti_list_nb_bod_div10">
+                    <p class="noti_list_nb_bod_p10">{{noti.title}}</p>
                     <span class="noti_list_nb_bod_span">{{noti.body}}</span>
                 </div>
             </a>
-            <a class="btn noti_list_nb_bod_a2" (click)="onDelete(noti.noti_ID)" >
+            <a class="btn noti_list_nb_bod_a20" (click)="onDelete(noti.noti_ID)" >
                 <i class="fa fa-trash-o"></i>
             </a>
           </div> 

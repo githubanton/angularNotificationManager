@@ -1,6 +1,6 @@
-<nb-card style="margin-bottom: 0.8em;">
-    <nb-card-header style="padding-top: 0.7em;padding-bottom: 0.7em;">Filler Library</nb-card-header>
-    <nb-card-body style="padding-top: 0.7em;padding-bottom: 0.7em;">
+<nb-card class="noti_nb_card1">
+    <nb-card-header class="noti_nb_header1">Filler Library</nb-card-header>
+    <nb-card-body class="noti_nb_body1">
       
       <div style="text-align: center;">
         <img src="../../../assets/images/mybtn.png" alt="" style="width:96%;">
@@ -8,12 +8,8 @@
     </nb-card-body>
   </nb-card>
   <nb-card>
-    <nb-card-header style="    padding-top: 0.5em; padding-bottom: 0.5em;">
-      <span>Notification Manager</span><button style="    float: right;
-      background: #4aa3df;
-      border-radius: 0.4em;
-      padding: 6px;
-      text-transform: capitalize;" class="btn">Choose from templates</button></nb-card-header>
+    <nb-card-header class="noti_nb_header2">
+      <span>Notification Manager</span><button class="btn noti_nb_header2_span">Choose from templates</button></nb-card-header>
     <nb-card-body>
       <form  #notificationForm="ngForm" (ngSubmit)="onSubmit(notificationForm)">
           <input type="hidden" name="noti_ID" #noti_ID="ngModel" [(ngModel)]="notificationService.selectedNotification.noti_ID">
@@ -40,13 +36,12 @@
       <div class="row">
         
         <div class="col-lg-5">
-        <nb-card size="small" style="    height: 17em;">
-            <nb-card-header style="font-size: 1em; border: 2px solid #d5d8dc;border-bottom: 0;
-            text-align: center;padding-top: 7px; padding-bottom: 7px;">
+        <nb-card size="small" style="height: 17em;">
+            <nb-card-header class="noti_nb_card_header3">
                 TARGET CUSTOMER SEGMENTS
             </nb-card-header>
-            <nb-card-body style="padding: 0;overflow: hidden;">
-                <select  multiple class="form-control" style="height:100%;" >
+            <nb-card-body class="noti_nb_body2">
+                <select  multiple class="form-control noti_nb_select"  >
                     <option *ngFor = "let item of notificationService.itemArray | orderBy: orderId" (click)="selectChangeHandler(item.name)" [value]="item.name">{{item.name}}</option>
                 </select>
                  
@@ -58,15 +53,7 @@
           <div>
             <div style="min-height: 8em; padding: 1em;">
 
-                <button  style="margin: 5px;
-                padding: 5px;
-                text-transform: capitalize;
-                background: white;
-                color: #807a7a;
-                border-radius: 20px;
-                font-size: 0.7em;
-                /* border-color: black; */
-                border: solid 2px #dadfe6;" *ngFor="let item of notificationService.rightArray; let i = index"              
+                <button  class="noti_nb_button1" *ngFor="let item of notificationService.rightArray; let i = index"              
                   (click)="buttonChangeHandler(i)">{{item.name}}</button>
               
             </div>
@@ -78,8 +65,7 @@
         
 
           <div  style=" float: right;  margin-right: 2em;margin-top: 3em;">
-              <button class="btn btn-default" style="     margin-right: 18px;   background: none; width: 40px;height: 40px; padding: 0;
-          " type="submit" [disabled]="!notificationForm.valid">
+              <button class="btn btn-default noti_nb_button2"  type="submit" [disabled]="!notificationForm.valid">
                   <img style="padding-right: 1em;" src="../../../assets/images/save1.png" alt="">
               </button>
 
